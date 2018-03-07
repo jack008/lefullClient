@@ -1,0 +1,41 @@
+{
+  "name": "lisa",
+  "productName": "Lisa客户端",
+  "version": "1.0.0",
+  "description": "lehu product",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "compile": "rimraf app/out && tsc",
+    "release": "npm run compile && build",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -p onTagOrDraft",
+    "postinstall":"electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "cn.lefull.app",
+    "directories": {
+      "buildResources": ".tmp",
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": "default"
+    },
+    "win": {
+      "target": "default"
+    }
+  },
+  "devDependencies": {
+    "electron": "~1.8.2",
+    "electron-prebuilt": "^1.4.13",
+    "electron-rebuild": "^1.7.3",
+    "electron-builder": "^20.3.1",
+    "electron-compilers": "^5.9.0",
+    "electron-packager": "^11.1.0"
+  },
+  "dependencies": {
+    "electron-compile": "^6.4.2",
+    "electron-context-menu": "^0.9.1"
+  }
+}
